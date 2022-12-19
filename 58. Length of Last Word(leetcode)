@@ -1,0 +1,34 @@
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        
+        int n = s.size(); 
+        int start = 0;
+        int end = n-1;
+        
+        if(s[0] == ' ')  {
+            int i = 0;
+            while(s[i] == ' ') {
+                i++;
+            }
+            start = i;
+        }
+        
+        if(s[n-1] == ' ') {
+            int k = n-1;
+            while(s[k] == ' ') {
+                k--;
+            }                                
+            end = k;
+        }
+		
+		int n1 = end-start+1;
+                
+        for(int u = end; u >= start; u--) {
+            if(s[u] == ' ') {
+                return  end-u;
+            }
+        }
+        return n1;
+    }
+};
